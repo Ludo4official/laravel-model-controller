@@ -10,24 +10,28 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-
-        <main>
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-
-                        <div class="card">
-                            <div class="card-body">
-                                <img src="{{ Vite::asset('resources/img/laravel.png') }}" alt="">
-
-                                <h1 class="card-title">Laravel 9 + Bootstrap Template</h1>
-                            </div>
-                        </div>
-
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center fw-bold mb-5">
+                        Movies
+                    </h1>
                 </div>
             </div>
-        </main>
-
+            <div class="row">
+                @foreach ($movies as $movie)
+                    <div class="col-4 mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://images.fidhouse.com/fidelitynews/wp-content/uploads/sites/9/2014/12/hollywood2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">{{ $movie->title }}</h5>
+                            <p class="card-text">{{ $movie->nationality }}</p>
+                            <a href="#" class="btn btn-primary">{{ $movie->vote }}</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </body>
 </html>
